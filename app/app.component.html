@@ -1,0 +1,14 @@
+<ActionBar title="My Github Activity" icon="" class="action-bar">
+</ActionBar>
+
+<ScrollView>
+    <StackLayout>
+        <ListView [items]="activities$">
+            <template let-item="item">                  
+                <GridLayout>
+                    <Label class="m-5" col="1" [text]='item.id'></Label>
+                </GridLayout>                 
+            </template>
+        </ListView>
+    </StackLayout>
+</ScrollView>
