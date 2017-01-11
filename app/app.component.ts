@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ActivityService } from "./app.service";
 import { Observable } from 'rxjs/Observable';
 
@@ -6,21 +6,14 @@ import { Observable } from 'rxjs/Observable';
     selector: "my-app",
     templateUrl: "app.component.html"
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
     public activities$: Observable<any>;
-    data: any;
-    error: any;
 
-    constructor(private activityService: ActivityService) {
-        this.activityService.getActivities().subscribe(
-            data => {
-                this.activities$ = data;
-            },
-            error => {
-                this.error = error;
-            });
+    constructor(private activityService: ActivityService) { }
 
+    ngOnInit() {
+        this.activities$ = this.activityService.getActivities();
     }
 
 }    

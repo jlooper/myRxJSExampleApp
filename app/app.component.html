@@ -3,7 +3,7 @@
 
 <ScrollView>
     <StackLayout>
-        <ListView [items]="activities$">
+        <ListView [items]="activities$ | async">
             <template let-item="item">                  
                 <GridLayout>
                     <Label class="m-5" col="1" [text]='item.id'></Label>
